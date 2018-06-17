@@ -7,7 +7,6 @@ const RESTROUTE = RESTROOT + '/buckets/1/todolists/1/todos.json';
 var jso = new JSO({
 	providerID: "Basecamp",
     client_id: "91332c0c39c3d4a9be23362ce10ad71e0912fc25",
-    response_type: "web_server",
 	redirect_uri: "/auth",
 	authorization: ROOTURL + "/authorization/new"
 });
@@ -21,8 +20,16 @@ var token = localStorage.getItem('tokens-Taskbook');
 // Trigger OAuth 2 authentication sequence:
 function oauthLogin() {
 
-	jso.getToken();
+    let opts = {
+        request: {
+            prompt: "none"
+        },
+        response_type: 'web_server',
+        redirect_uri: "https://fmixell.github.io/auth"
+    }
 
+	jso.getToken(opts);
+    
 }
 
 // Log out and wipe all memory of the session:
