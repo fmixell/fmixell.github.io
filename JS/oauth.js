@@ -6,7 +6,8 @@ const RESTROUTE = RESTROOT + '/buckets/1/todolists/1/todos.json';
 
 var jso = new JSO({
 	providerID: "Basecamp",
-	client_id: "91332c0c39c3d4a9be23362ce10ad71e0912fc25",
+    client_id: "91332c0c39c3d4a9be23362ce10ad71e0912fc25",
+    response_type: "web_server",
 	redirect_uri: "/auth",
 	authorization: ROOTURL + "/authorization/new"
 });
